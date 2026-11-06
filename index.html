@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AKSI - Akuntansi Seru dan Interaktif</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">📘 AKSI</div>
+
+  <button class="menu-btn" id="menuBtn" type="button">
+    ☰
+  </button>
+
+  <nav id="navigation">
+    <button type="button" data-page="home">Beranda</button>
+    <button type="button" data-page="materi">Materi</button>
+    <button type="button" data-page="kuis">Kuis</button>
+    <button type="button" data-page="game">Game</button>
+    <button type="button" data-page="nilai">Nilai</button>
+    <button type="button" data-page="guru" class="guru-link">
+      Panel Guru
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ========================= -->
+  <!-- BERANDA -->
+  <!-- ========================= -->
+
+  <section id="home" class="page active">
+
+    <div class="hero">
+      <div>
+        <span class="eyebrow">
+          MEDIA PEMBELAJARAN SMK KELAS X
+        </span>
+
+        <h1>Belajar Akuntansi Jadi Lebih Seru!</h1>
+
+        <p>
+          Pelajari Siklus Akuntansi Perusahaan Jasa,
+          kerjakan kuis, dan mainkan game
+          Survey Membuktikan!
+        </p>
+
+        <button type="button" class="btn yellow" data-page="materi">
+          Mulai Belajar →
+        </button>
+
+        <button type="button" class="btn yellow" data-page="game">
+          🎮 Main Game
+        </button>
+      </div>
+
+      <div class="hero-emoji">
+        📚💰📊
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="section-title">Jelajahi Zona AKSI</h2>
+
+      <div class="cards">
+
+        <button type="button" class="card" data-page="materi">
+          <span class="card-icon">📖</span>
+          <h3>Zona Materi</h3>
+          <p>
+            Baca materi PDF dan unduh presentasi
+            PowerPoint pembelajaran.
+          </p>
+        </button>
+
+        <button type="button" class="card" data-page="kuis">
+          <span class="card-icon">📝</span>
+          <h3>Zona Kuis</h3>
+          <p>
+            Kerjakan latihan soal dan lihat
+            nilai secara otomatis.
+          </p>
+        </button>
+
+        <button type="button" class="card" data-page="game">
+          <span class="card-icon">🎮</span>
+          <h3>Zona Game</h3>
+          <p>
+            Tebak jawaban tersembunyi
+            dan kumpulkan poin.
+          </p>
+        </button>
+
+        <button type="button" class="card" data-page="nilai">
+          <span class="card-icon">🏆</span>
+          <h3>Zona Prestasi</h3>
+          <p>
+            Lihat riwayat nilai kuis
+            dan skor permainan.
+          </p>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- HALAMAN MATERI -->
+  <!-- ========================= -->
+
+  <section id="materi" class="page">
+
+    <div class="page-header">
+      <h1>📚 Perpustakaan Materi</h1>
+      <p>
+        Materi Akuntansi SMK Kelas X —
+        Siklus Akuntansi Perusahaan Jasa
+      </p>
+    </div>
+
+    <div class="container">
+
+      <!-- TOMBOL TAMBAH MATERI -->
+      <div class="panel">
+
+        <h2>📖 Daftar Materi Pembelajaran</h2>
+
+        <p>
+          Pilih materi untuk dipelajari.
+          Kamu dapat membaca file PDF langsung
+          atau mengunduh file PowerPoint.
+        </p>
+
+        <button
+          type="button"
+          class="btn primary"
+          data-page="guru"
+        >
+          ➕ Tambah Materi PDF / PPT
+        </button>
+
+      </div>
+
+      <div class="notice">
+        📌 Format yang didukung:
+        PDF, PPT, dan PPTX.
+        PDF dapat dibaca langsung di website.
+      </div>
+
+      <!-- DAFTAR MATERI OTOMATIS -->
+      <div
+        id="materialList"
+        class="cards material-cards">
+      </div>
+
+      <!-- PENAMPIL PDF -->
+      <div id="pdfViewer" class="panel hidden">
+
+        <div class="viewer-head">
+          <h2 id="viewerTitle">
+            Materi Pembelajaran
+          </h2>
+
+          <button
+            type="button"
+            id="closeViewer"
+            class="btn light"
+          >
+            ✕ Tutup
+          </button>
+        </div>
+
+        <iframe
+          id="pdfFrame"
+          title="Pembaca Materi PDF">
+        </iframe>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- HALAMAN KUIS -->
+  <!-- ========================= -->
+
+  <section id="kuis" class="page">
+
+    <div class="page-header">
+      <h1>📝 Kuis Akuntansi</h1>
+      <p>
+        Uji pemahamanmu tentang
+        Siklus Akuntansi Perusahaan Jasa.
+      </p>
+    </div>
+
+    <div class="container narrow">
+
+      <!-- PEMBUKA KUIS -->
+      <div id="quizIntro" class="panel center">
+
+        <div class="big-icon">🧠</div>
+
+        <h2>Siap Mengerjakan Kuis?</h2>
+
+        <p>
+          Jawab pertanyaan pilihan ganda
+          dan dapatkan nilai secara otomatis.
+        </p>
+
+        <button
+          type="button"
+          id="startQuiz"
+          class="btn primary"
+        >
+          Mulai Kuis
+        </button>
+
+      </div>
+
+      <!-- SOAL KUIS -->
+      <div id="quizPlay" class="panel hidden">
+
+        <div class="quiz-meta">
+          <strong id="quizCounter"></strong>
+          <span id="quizProgressText"></span>
+        </div>
+
+        <div class="progress">
+          <div id="quizProgress"></div>
+        </div>
+
+        <h2 id="quizQuestion"></h2>
+
+        <div id="quizOptions" class="quiz-options"></div>
+
+        <div
+          id="quizFeedback"
+          class="feedback hidden">
+        </div>
+
+        <button
+          type="button"
+          id="nextQuiz"
+          class="btn primary hidden"
+        >
+          Berikutnya →
+        </button>
+
+      </div>
+
+      <!-- HASIL KUIS -->
+      <div id="quizResult" class="panel center hidden">
+
+        <div class="big-icon">🏆</div>
+
+        <h2>Kuis Selesai!</h2>
+
+        <div id="resultScore" class="result-score"></div>
+
+        <p id="resultMessage"></p>
+
+        <button
+          type="button"
+          id="retryQuiz"
+          class="btn primary"
+        >
+          Ulangi Kuis
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- GAME SURVEY MEMBUKTIKAN -->
+  <!-- ========================= -->
+
+  <section id="game" class="page">
+
+    <div class="page-header">
+      <h1>🎮 Survey Membuktikan!</h1>
+      <p>
+        Game Show Akuntansi SMK Kelas X
+      </p>
+    </div>
+
+    <div class="container">
+
+      <div class="game-show" id="gameShow">
+
+        <div class="game-top">
+
+          <div class="game-stat">
+            <small>RONDE</small>
+            <strong id="roundNumber">1</strong>
+          </div>
+
+          <div class="game-brand">
+            <span>
+              ⭐ GAME SHOW AKUNTANSI ⭐
+            </span>
+
+            <h2>SURVEY MEMBUKTIKAN!</h2>
+          </div>
+
+          <div class="game-stat">
+            <small>SKOR</small>
+            <strong id="gameScore">0</strong>
+          </div>
+
+        </div>
+
+        <div
+          class="game-question"
+          id="gameQuestion">
+        </div>
+
+        <div class="strikes">
+          KESEMPATAN SALAH
+
+          <div id="strikeDisplay">
+            ☆☆☆
+          </div>
+        </div>
+
+        <!-- PAPAN JAWABAN -->
+        <div
+          id="answerBoard"
+          class="answer-board">
+        </div>
+
+        <!-- INPUT JAWABAN -->
+        <div class="game-entry">
+
+          <label for="gameAnswer">
+            Ketik Jawabanmu
+          </label>
+
+          <div class="input-row">
+
+            <input
+              id="gameAnswer"
+              type="text"
+              placeholder="Masukkan jawaban..."
+              autocomplete="off"
+            >
+
+            <button
+              type="button"
+              id="checkGame"
+              class="btn yellow"
+            >
+              CEK JAWABAN
+            </button>
+
+          </div>
+
+          <p
+            id="gameMessage"
+            aria-live="polite">
+          </p>
+
+        </div>
+
+        <div class="game-actions">
+
+          <button
+            type="button"
+            id="revealGame"
+            class="btn light"
+          >
+            👁 Buka Jawaban
+          </button>
+
+          <button
+            type="button"
+            id="restartGame"
+            class="btn light"
+          >
+            ↻ Ulangi
+          </button>
+
+          <button
+            type="button"
+            id="fullscreenGame"
+            class="btn light"
+          >
+            ⛶ Fullscreen
+          </button>
+
+          <button
+            type="button"
+            id="nextRound"
+            class="btn yellow"
+          >
+            Ronde Berikutnya →
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="panel game-help">
+
+        <h3>📌 Cara Bermain</h3>
+
+        <p>
+          Baca pertanyaan dan tebak jawaban
+          yang tersembunyi. Setiap jawaban
+          benar akan membuka satu kotak
+          dan menambah poin.
+          Kamu memiliki tiga kesempatan salah
+          pada setiap ronde.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- HALAMAN NILAI -->
+  <!-- ========================= -->
+
+  <section id="nilai" class="page">
+
+    <div class="page-header">
+      <h1>🏆 Prestasi Belajar</h1>
+      <p>
+        Pantau nilai kuis dan hasil permainan.
+      </p>
+    </div>
+
+    <div class="container narrow">
+
+      <div class="score-cards">
+
+        <div class="panel center">
+          <p>Nilai Kuis Terbaik</p>
+          <h2 id="bestQuiz">—</h2>
+        </div>
+
+        <div class="panel center">
+          <p>Skor Game Terbaik</p>
+          <h2 id="bestGame">—</h2>
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <h2>Riwayat Aktivitas</h2>
+
+        <div id="scoreHistory"></div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- PANEL GURU -->
+  <!-- ========================= -->
+
+  <section id="guru" class="page">
+
+    <div class="page-header">
+      <h1>👩‍🏫 Panel Guru</h1>
+      <p>
+        Kelola materi, soal kuis,
+        dan ronde permainan AKSI.
+      </p>
+    </div>
+
+    <div class="container">
+
+      <div class="notice warning">
+        ⚠️ Website ini masih versi lokal.
+        Materi yang ditambahkan tersimpan
+        di browser perangkat ini.
+        Belum ada sistem login guru.
+      </div>
+
+      <div class="teacher-grid">
+
+        <!-- FORM TAMBAH MATERI -->
+        <form id="materialForm" class="panel">
+
+          <h2>📁 Tambah Materi PDF / PPT</h2>
+
+          <p>
+            Unggah materi pembelajaran baru
+            agar muncul di halaman Materi.
+          </p>
+
+          <label for="materialTitle">
+            Judul Materi
+          </label>
+
+          <input
+            id="materialTitle"
+            type="text"
+            placeholder="Contoh: Siklus Akuntansi Perusahaan Jasa"
+            required
+          >
+
+          <label for="materialDesc">
+            Deskripsi Materi
+          </label>
+
+          <textarea
+            id="materialDesc"
+            rows="3"
+            placeholder="Tuliskan deskripsi singkat materi...">
+          </textarea>
+
+          <label for="materialFile">
+            Pilih File PDF / PPT / PPTX
+          </label>
+
+          <input
+            id="materialFile"
+            type="file"
+            accept=".pdf,.ppt,.pptx"
+            required
+          >
+
+          <button
+            type="submit"
+            class="btn primary"
+          >
+            💾 Simpan Materi
+          </button>
+
+        </form>
+
+
+        <!-- FORM TAMBAH SOAL -->
+        <form id="questionForm" class="panel">
+
+          <h2>📝 Tambah Soal Kuis</h2>
+
+          <label for="questionText">
+            Pertanyaan
+          </label>
+
+          <textarea
+            id="questionText"
+            rows="3"
+            required>
+          </textarea>
+
+          <label for="answerA">Jawaban A</label>
+          <input id="answerA" required>
+
+          <label for="answerB">Jawaban B</label>
+          <input id="answerB" required>
+
+          <label for="answerC">Jawaban C</label>
+          <input id="answerC" required>
+
+          <label for="answerD">Jawaban D</label>
+          <input id="answerD" required>
+
+          <label for="correctAnswer">
+            Kunci Jawaban
+          </label>
+
+          <select id="correctAnswer">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</option>
+            <option value="3">D</option>
+          </select>
+
+          <label for="questionExplanation">
+            Pembahasan
+          </label>
+
+          <textarea
+            id="questionExplanation"
+            rows="3">
+          </textarea>
+
+          <button
+            type="submit"
+            class="btn primary"
+          >
+            ➕ Simpan Soal
+          </button>
+
+        </form>
+
+
+        <!-- FORM TAMBAH RONDE -->
+        <form id="roundForm" class="panel">
+
+          <h2>🎮 Tambah Ronde Game</h2>
+
+          <label for="roundQuestion">
+            Pertanyaan Game
+          </label>
+
+          <textarea
+            id="roundQuestion"
+            rows="3"
+            placeholder="Contoh: Sebutkan akun yang termasuk aset!"
+            required>
+          </textarea>
+
+          <p class="hint">
+            Isi minimal dua jawaban.
+            Setiap jawaban memiliki poin.
+            Alternatif jawaban dapat dipisahkan
+            menggunakan koma.
+          </p>
+
+          <div id="roundFields"></div>
+
+          <button
+            type="submit"
+            class="btn primary"
+          >
+            ➕ Simpan Ronde
+          </button>
+
+        </form>
+
+
+        <!-- KELOLA KONTEN -->
+        <div class="panel">
+
+          <h2>🗂 Kelola Konten</h2>
+
+          <p>
+            Di sini kamu dapat menghapus
+            materi PDF/PPT, soal kuis,
+            dan ronde permainan
+            yang sudah ditambahkan.
+          </p>
+
+          <div id="customContent"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+  <h2>📘 AKSI</h2>
+
+  <p>
+    Akuntansi Seru dan Interaktif
+    — SMK Kelas X
+  </p>
+
+  <small>© 2026 AKSI</small>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
